@@ -1,5 +1,7 @@
-package producto.producto.demo;
+package producto.producto.demo.Category;
+
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,40 +14,40 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping
+@RequestMapping("/crud")
 @CrossOrigin({"*"})
 
-public class ProductController {
+public class CategoryController {
     @Autowired 
-    private ProductService productService;
+    private CategoryService categoryService;
 
-    @PostMapping("/")
+    @PostMapping("/category")
 
-    public Product save(@RequestBody Product entity)
+    public Category save(@RequestBody Category entity)
     {
-        return productService.save(entity);
+        return categoryService.save(entity);
     }
 
-    @GetMapping("/{id}/")
-    public Product findProduct(@PathVariable long id)
+    @GetMapping("/category/{id}/")
+    public Category findCategory(@PathVariable long id)
     {
-        return productService.findById(id);
+        return categoryService.findById(id);
     }
-    @PutMapping("/")
-    public Product update(@RequestBody Product entity)
+    @PutMapping("/category/{id}/")
+    public Category update(@RequestBody Category entity)
     {
-        return productService.save(entity);
+        return categoryService.save(entity);
     }
 
-    @DeleteMapping("/{id}/")
+    @DeleteMapping("/category/{id}/")
     public void deleteByID(@PathVariable long id)
     {
-        productService.deleteByID(id);
+        categoryService.deleteByID(id);
     }
 
-    @GetMapping("/")
-    public List<Product> findAll()
+    @GetMapping("/category")
+    public List<Category> findAll()
     {
-        return productService.findAll();
+        return categoryService.findAll();
     }
 }

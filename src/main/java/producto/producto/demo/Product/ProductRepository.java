@@ -1,4 +1,4 @@
-package producto.producto.demo;
+package producto.producto.demo.Product;
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
